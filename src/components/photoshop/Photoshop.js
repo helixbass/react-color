@@ -18,6 +18,7 @@ export class Photoshop extends React.Component {
   }
 
   render() {
+    console.log('render', this.props)
     const styles = reactCSS({
       'default': {
         picker: {
@@ -39,7 +40,7 @@ export class Photoshop extends React.Component {
           textAlign: 'center',
         },
         body: {
-          padding: '15px 15px 0',
+          padding: '15px 15px',
           display: 'flex',
         },
         saturation: {
@@ -77,8 +78,6 @@ export class Photoshop extends React.Component {
 
     return (
       <div style={ styles.picker } className="photoshop-picker">
-        <div style={ styles.head }>{ this.props.header }</div>
-
         <div style={ styles.body } className="flexbox-fix">
           <div style={ styles.saturation }>
             <Saturation
@@ -102,17 +101,17 @@ export class Photoshop extends React.Component {
                 <PhotoshopPreviews
                   rgb={ this.props.rgb }
                   currentColor={ this.state.currentColor }
+                  onChange={ this.props.onChange }
                 />
               </div>
               <div style={ styles.actions }>
-                <PhotoshopButton label="OK" onClick={ this.props.onAccept } active />
-                <PhotoshopButton label="Cancel" onClick={ this.props.onCancel } />
                 <PhotoshopFields
                   onChange={ this.props.onChange }
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
                   hex={ this.props.hex }
                 />
+                <PhotoshopButton label='Done' onClick={ this.props.onClose } />
               </div>
             </div>
           </div>

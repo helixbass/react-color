@@ -5,6 +5,7 @@ import color from '../../helpers/color'
 import { EditableInput } from '../common'
 
 export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
+  console.log({rgb, hsv, hex})
   const styles = reactCSS({
     'default': {
       fields: {
@@ -90,10 +91,16 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         source: 'rgb',
       }, e)
     } else if (data.h || data.s || data.v) {
+      console.log({data, rgb, hsv, hex, arg: {
+        h: data.h || hsv.h,
+        s: data.s || hsv.s * 100,
+        v: data.v || hsv.v * 100,
+        source: 'hsv',
+      }})
       onChange({
         h: data.h || hsv.h,
-        s: data.s || hsv.s,
-        v: data.v || hsv.v,
+        s: data.s || hsv.s * 100,
+        v: data.v || hsv.v * 100,
         source: 'hsv',
       }, e)
     }

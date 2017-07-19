@@ -1,7 +1,7 @@
 import React from 'react'
 import reactCSS from 'reactcss'
 
-export const PhotoshopPreviews = ({ rgb, currentColor }) => {
+export const PhotoshopPreviews = ({ rgb, currentColor, onChange }) => {
   const styles = reactCSS({
     'default': {
       swatches: {
@@ -33,7 +33,9 @@ export const PhotoshopPreviews = ({ rgb, currentColor }) => {
       <div style={ styles.label }>new</div>
       <div style={ styles.swatches }>
         <div style={ styles.new } />
-        <div style={ styles.current } />
+        <div style={ styles.current } onClick={function() {
+            onChange({hex: currentColor})
+        }} />
       </div>
       <div style={ styles.label }>current</div>
     </div>
