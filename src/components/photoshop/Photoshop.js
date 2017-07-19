@@ -18,7 +18,6 @@ export class Photoshop extends React.Component {
   }
 
   render() {
-    console.log('render', this.props)
     const styles = reactCSS({
       'default': {
         picker: {

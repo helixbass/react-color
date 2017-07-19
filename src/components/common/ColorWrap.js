@@ -26,7 +26,6 @@ export const ColorWrap = (Picker) => {
       const isValidColor = color.simpleCheckForValidColor(data)
       if (isValidColor) {
         const colors = color.toState(data, data.h || this.state.oldHue)
-        console.log({colors, color, data})
         this.setState(colors)
         this.props.onChangeComplete && this.debounce(this.props.onChangeComplete, colors, event)
         this.props.onChange && this.props.onChange(colors, event)
