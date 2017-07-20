@@ -90,11 +90,6 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         source: 'rgb',
       }, e)
     } else if (data.h || data.s || data.v) {
-        h: data.h || hsv.h,
-        s: data.s || hsv.s * 100,
-        v: data.v || hsv.v * 100,
-        source: 'hsv',
-      }})
       onChange({
         h: data.h || hsv.h,
         s: data.s || hsv.s * 100,

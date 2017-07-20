@@ -3,6 +3,7 @@ import reactCSS from 'reactcss'
 
 import { ColorWrap, Saturation, Hue } from '../common'
 import PhotoshopFields from './PhotoshopFields'
+import PhotoshopColorNames from './PhotoshopColorNames'
 import PhotoshopPointerCircle from './PhotoshopPointerCircle'
 import PhotoshopPointer from './PhotoshopPointer'
 import PhotoshopButton from './PhotoshopButton'
@@ -108,6 +109,11 @@ export class Photoshop extends React.Component {
                   onChange={ this.props.onChange }
                   rgb={ this.props.rgb }
                   hsv={ this.props.hsv }
+                  hex={ this.props.hex }
+                />
+                <PhotoshopColorNames
+                  onChange={ this.props.onChange }
+                  colorNames={ this.props.colorNames }
                   hex={ this.props.hex }
                 />
                 <PhotoshopButton label='Done' onClick={ this.props.onClose } />
