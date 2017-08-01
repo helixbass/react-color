@@ -27,7 +27,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
         marginBottom: '5px',
         fontSize: '13px',
-        paddingLeft: '3px',
+        padding: '0 0 0 3px',
         marginRight: '10px',
       },
       RGBlabel: {
@@ -50,7 +50,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         boxShadow: 'inset 0 1px 1px rgba(0,0,0,.1), 0 1px 0 0 #ECECEC',
         marginBottom: '6px',
         fontSize: '13px',
-        paddingLeft: '3px',
+        padding: '0 0 0 3px',
       },
       HEXlabel: {
         position: 'absolute',
