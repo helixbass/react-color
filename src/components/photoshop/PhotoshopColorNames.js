@@ -25,7 +25,11 @@ export const PhotoshopColorNames = ({onChange, colorNames, hex}) => {
           height: 10,
           minHeight: 10,
         }}
-        value={hex}
+        value={
+          hex && Object.keys(colorNames).some(function(name) {
+            return colorNames[name] === hex
+          }) ? hex : ''
+        }
         options={
           Object.keys(colorNames).map(function(colorName) {
             let colorHex = colorNames[colorName]
