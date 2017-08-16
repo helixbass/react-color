@@ -40,9 +40,7 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         position: 'absolute',
       },
       HEXwrap: {
-        position: 'absolute',
-        top: 160,
-        left: 150
+        position: 'relative',
       },
       HEXinput: {
         marginLeft: '20%',
@@ -84,12 +82,11 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
         hex: data['#'],
         source: 'hex',
       }, e)
-    } else if (data.r || data.g || data.b || data.a) {
+    } else if (data.r || data.g || data.b) {
       onChange({
         r: data.r || rgb.r,
         g: data.g || rgb.g,
         b: data.b || rgb.b,
-        a: data.a || rgb.a,
         source: 'rgb',
       }, e)
     } else if (data.h || data.s || data.v) {
@@ -103,62 +100,54 @@ export const PhotoshopPicker = ({ onChange, rgb, hsv, hex }) => {
   }
 
   return (
-    <div>
+    <div style={ styles.fields }>
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="h"
+        value={ Math.round(hsv.h) }
+        onChange={ handleChange }
+      />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="s"
+        value={ Math.round(hsv.s * 100) }
+        onChange={ handleChange }
+      />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="v"
+        value={ Math.round(hsv.v * 100) }
+        onChange={ handleChange }
+      />
+      <div style={ styles.divider } />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="r"
+        value={ rgb.r }
+        onChange={ handleChange }
+      />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="g"
+        value={ rgb.g }
+        onChange={ handleChange }
+      />
+      <EditableInput
+        style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
+        label="b"
+        value={ rgb.b }
+        onChange={ handleChange }
+      />
       <EditableInput
         style={{ wrap: styles.HEXwrap, input: styles.HEXinput, label: styles.HEXlabel }}
         label="#"
         value={ hex.replace('#', '') }
         onChange={ handleChange }
       />
-      <div style={ styles.fields }>
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="h"
-          value={ Math.round(hsv.h) }
-          onChange={ handleChange }
-        />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="s"
-          value={ Math.round(hsv.s * 100) }
-          onChange={ handleChange }
-        />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="v"
-          value={ Math.round(hsv.v * 100) }
-          onChange={ handleChange }
-        />
-        <div style={ styles.divider } />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="r"
-          value={ rgb.r }
-          onChange={ handleChange }
-        />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="g"
-          value={ rgb.g }
-          onChange={ handleChange }
-        />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="b"
-          value={ rgb.b }
-          onChange={ handleChange }
-        />
-        <EditableInput
-          style={{ wrap: styles.RGBwrap, input: styles.RGBinput, label: styles.RGBlabel }}
-          label="a"
-          value={ rgb.a }
-          onChange={ handleChange }
-        />
-        <div style={ styles.fieldSymbols }>
-          <div style={ styles.symbol }>°</div>
-          <div style={ styles.symbol }>%</div>
-          <div style={ styles.symbol }>%</div>
-        </div>
+      <div style={ styles.fieldSymbols }>
+        <div style={ styles.symbol }>°</div>
+        <div style={ styles.symbol }>%</div>
+        <div style={ styles.symbol }>%</div>
       </div>
     </div>
   )
