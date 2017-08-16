@@ -7,7 +7,7 @@ pids
 *.pid
 *.seed
 
-/lib/
+# /lib/
 
 *.DS_Store
 
