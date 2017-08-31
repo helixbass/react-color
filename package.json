@@ -22,6 +22,7 @@
     "test": "npm run unit-test && npm run jest",
     "clean": "rm -rf lib && mkdir lib",
     "lib": "npm run clean && babel src -d lib",
+    "coffee-watch": "coffee -o src/ -wc src/",
     "docs": "npm run docs-server",
     "docs-server": "node ./scripts/docs-server",
     "docs-dist": "node ./scripts/docs-dist"
@@ -59,6 +60,7 @@
     "babel-register": "^6.5.2",
     "chai": "^3.3.0",
     "chai-spies": "^0.7.1",
+    "coffeescript-jsxy": "^0.1.6",
     "css-loader": "^0.24.0",
     "enzyme": "2.8.2",
     "event-stream": "^3.3.1",

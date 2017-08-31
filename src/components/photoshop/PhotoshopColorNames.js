@@ -21,10 +21,11 @@ export const PhotoshopColorNames = ({onChange, colorNames, hex}) => {
         style={{
           width: '120px',
           minWidth: '2em',
-          margin: '0 0 8px -80px',
+          margin: '0 0 8px',
           height: 10,
           minHeight: 10,
         }}
+        upward
         value={
           hex && Object.keys(colorNames).some(function(name) {
             return colorNames[name] === hex
